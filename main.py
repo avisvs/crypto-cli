@@ -5,6 +5,7 @@ from optparse import OptionParser
 
 
 CRYPTOCOMPARE_API_URL = 'https://www.cryptocompare.com/api/data/coinsnapshot/'
+DATA_PATH = '/data'
 
 
 def endpoint(base, quote):
@@ -40,7 +41,8 @@ def write_csv(exchanges_data):
         print('No exchanges data')
         return
 
-    filename = '{}.csv'.format(
+    filename = '{}/{}.csv'.format(
+        DATA_PATH,
         datetime.datetime.now().strftime("%Y-%m-%d--%H:%M:%S")
     )
 
